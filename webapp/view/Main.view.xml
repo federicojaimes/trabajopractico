@@ -72,6 +72,7 @@
                             <ObjectStatus text="{path: 'Clientes>Custtype',
                                                 formatter: '.formatter.Custtype'}"></ObjectStatus>
                             <Text text="{path: 'Clientes>Discount', formatter: '.formatPercentage'}"></Text>
+                           
                             <Label text="{Clientes>Email}"></Label>
                             <Label text="{Clientes>Webuser}"></Label>
                             <Button icon="sap-icon://edit" press="onEditPress" />

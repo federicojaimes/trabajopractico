@@ -1,6 +1,5 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
-    "sap/ui/core/format/NumberFormat"
+    "sap/ui/core/mvc/Controller"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -29,9 +28,9 @@ sap.ui.define([
                 var month = parseInt(oEdad.substring(4, 6));
                 var day = parseInt(oEdad.substring(6, 8));
                 var fechaNac = new Date(year, month, day);
-                 let edad = fechaActual.getFullYear() - fechaNac.getFullYear();
+                let edad = fechaActual.getFullYear() - fechaNac.getFullYear();
                 return edad;
-                
+
             },
             formatPercentage: function (value) {
                 return (value * 1).toFixed(2) + "%";
