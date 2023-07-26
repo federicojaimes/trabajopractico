@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="YTEST_FJ_SRV_01" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Cliente" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Nº cliente" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Nombre cliente" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Form" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Tratamiento" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Street" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Calle" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Postbox" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Apdo." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Postcode" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Cód.postal" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="City" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Ciudad" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="País" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Region" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Región" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Telephone" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Tel." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Custtype" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Cliente E/P" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Discount" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Descuento (%)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Langu" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Dir.cor.elec." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Webuser" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Nombre web" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="IntegrantesSet" Relationship="YTEST_FJ_SRV_01.ClienteIntegrantes" FromRole="FromRole_ClienteIntegrantes" ToRole="ToRole_ClienteIntegrantes"/>
+            </EntityType>
+            <EntityType Name="Integrantes" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Nº cliente" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IdInteg" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Nº cliente" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Nombre" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Nombre cliente" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Relacion" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Car.20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FecNac" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Fecha" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sexo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Car.20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="ClienteIntegrantes" sap:content-version="1">
+                <End Type="YTEST_FJ_SRV_01.Cliente" Multiplicity="1" Role="FromRole_ClienteIntegrantes"/>
+                <End Type="YTEST_FJ_SRV_01.Integrantes" Multiplicity="*" Role="ToRole_ClienteIntegrantes"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ClienteIntegrantes">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ClienteIntegrantes">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="YTEST_FJ_SRV_01_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ClienteSet" EntityType="YTEST_FJ_SRV_01.Cliente" sap:content-version="1"/>
+                <EntitySet Name="IntegrantesSet" EntityType="YTEST_FJ_SRV_01.Integrantes" sap:content-version="1"/>
+                <AssociationSet Name="ClienteIntegrantesSet" Association="YTEST_FJ_SRV_01.ClienteIntegrantes" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ClienteSet" Role="FromRole_ClienteIntegrantes"/>
+                    <End EntitySet="IntegrantesSet" Role="ToRole_ClienteIntegrantes"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="http://ecs-s4dev.tensolite.com:8000/sap/opu/odata/sap/YTEST_FJ_SRV_01/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://ecs-s4dev.tensolite.com:8000/sap/opu/odata/sap/YTEST_FJ_SRV_01/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

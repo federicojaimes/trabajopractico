@@ -1,0 +1,132 @@
+<mvc:View controllerName="Exaccs.trabajopractico.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <Panel headerText="{i18n>titPanelCliente}" class="sapUiSmallMargin" height="50%" width="98%">
+            <Table id="Clientes" items="{Clientes>/ClienteSet}" class="sapUiSizeCompact" growing="true" growingThreshold="20">
+                <columns>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>clienteID}"></Label>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>clienteName}"></Label>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>clienteStreet}"></Label>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>clienteCity}"></Label>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>clienteCountry}"></Label>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>clienteTelephone}"></Label>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>clienteCusttype}"></Label>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>clienteDiscount}"></Label>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>clienteEmail}"></Label>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>clienteWebuser}"></Label>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                        </header>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="{= ${Clientes>Custtype} === 'P' ? 'Navigation' : 'Inactive' }" press="">
+                        <cells>
+                            <Label text="{Clientes>Id}"></Label>
+                            <Label text="{Clientes>Name}"></Label>
+                            <Label text="{Clientes>Street}"></Label>
+                            <Label text="{Clientes>City}"></Label>
+                            <Label text="{Clientes>Country}"></Label>
+                            <Label text="{Clientes>Telephone}"></Label>
+                            <!--<Label text="{clientes>Custtype}"></Label>-->
+                            <ObjectStatus text="{path: 'Clientes>Custtype',
+                                                    formatter: '.formatter.Custtype'}"></ObjectStatus>
+                            <!--<Label text="{clientes>Discount}"></Label>-->
+                            <Text text="{path: 'Cliente>Discount', formatter: '.formatPercentage'}"></Text>
+                            <Label text="{Clientes>Email}"></Label>
+                            <Label text="{Clientes>Webuser}"></Label>
+                            <Button icon="sap-icon://edit" press="onEditPress" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </Panel>
+
+        <Panel headerText="{i18n>titPanelFamilia}" class="sapUiSmallMargin" height="30%" width="98%">
+            <headerToolbar>
+                <Toolbar>
+                    <content>
+                        <ToolbarSpacer />
+                        <Button text="Crear" press=".openDialog"/>
+                    </content>
+                </Toolbar>
+            </headerToolbar>
+            <Table id="familia" items="{clientes/IntegrantesSet}" class="sapUiSizeCompact" growing="true" growingThreshold="20">
+                <columns>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>familiaNombre}"></Label>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>familiaRelacion}"></Label>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>familiaEdad}"></Label>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>familiaSexo}"></Label>
+                        </header>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Label text="{Clientes>Nombre}"></Label>
+                            <Label text="{Clientes>Relacion}"></Label>
+                            <!--<Label text="{clientes>FecNac}"></Label>-->
+                            <Label text="{path: 'Clientes>FecNac', formatter: '.calculateAge'}"></Label>
+                            <Label text="{Clientes>Sexo}"></Label>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </Panel>
+    </Page>
+</mvc:View>
