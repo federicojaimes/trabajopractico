@@ -61,7 +61,7 @@
                     </Column>
                 </columns>
                 <items>
-                    <ColumnListItem type="{= ${Clientes>Custtype} === 'P' ? 'Navigation' : 'Inactive' }" press="">
+                    <ColumnListItem type="{= ${Clientes>Custtype} === 'P' ? 'Active' : 'Inactive' }" press="onItemPress">
                         <cells>
                             <Label text="{Clientes>Id}"></Label>
                             <Label text="{Clientes>Name}"></Label>
@@ -69,11 +69,9 @@
                             <Label text="{Clientes>City}"></Label>
                             <Label text="{Clientes>Country}"></Label>
                             <Label text="{Clientes>Telephone}"></Label>
-                            <!--<Label text="{clientes>Custtype}"></Label>-->
                             <ObjectStatus text="{path: 'Clientes>Custtype',
-                                                    formatter: '.formatter.Custtype'}"></ObjectStatus>
-                            <!--<Label text="{clientes>Discount}"></Label>-->
-                            <Text text="{path: 'Cliente>Discount', formatter: '.formatPercentage'}"></Text>
+                                                formatter: '.formatter.Custtype'}"></ObjectStatus>
+                            <Text text="{path: 'Clientes>Discount', formatter: '.formatPercentage'}"></Text>
                             <Label text="{Clientes>Email}"></Label>
                             <Label text="{Clientes>Webuser}"></Label>
                             <Button icon="sap-icon://edit" press="onEditPress" />
@@ -83,7 +81,7 @@
             </Table>
         </Panel>
 
-        <Panel headerText="{i18n>titPanelFamilia}" class="sapUiSmallMargin" height="30%" width="98%">
+        <Panel id="pfamilia" headerText="{i18n>titPanelFamilia}" class="sapUiSmallMargin" height="30%" width="98%" visible="false">
             <headerToolbar>
                 <Toolbar>
                     <content>
@@ -92,7 +90,7 @@
                     </content>
                 </Toolbar>
             </headerToolbar>
-            <Table id="familia" items="{clientes/IntegrantesSet}" class="sapUiSizeCompact" growing="true" growingThreshold="20">
+            <Table id="familia" items="{Clientes>IntegrantesSet}" class="sapUiSizeCompact" growing="true" growingThreshold="20">
                 <columns>
                     <Column>
                         <header>
@@ -120,7 +118,6 @@
                         <cells>
                             <Label text="{Clientes>Nombre}"></Label>
                             <Label text="{Clientes>Relacion}"></Label>
-                            <!--<Label text="{clientes>FecNac}"></Label>-->
                             <Label text="{path: 'Clientes>FecNac', formatter: '.calculateAge'}"></Label>
                             <Label text="{Clientes>Sexo}"></Label>
                         </cells>
