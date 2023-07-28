@@ -3,7 +3,7 @@
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
         <Panel headerText="{i18n>titPanelCliente}" class="sapUiSmallMargin" height="50%" width="98%">
-            <Table id="Clientes" items="{Clientes>/ClienteSet}" class="sapUiSizeCompact" growing="true" growingThreshold="20">
+            <Table id="Clientes" items="{path:'Clientes>/ClienteSet', parameters: { expand: 'IntegrantesSet' }}" class="sapUiSizeCompact" growing="true" growingThreshold="20">
                 <columns>
                     <Column>
                         <header>
@@ -69,10 +69,8 @@
                             <Label text="{Clientes>City}"></Label>
                             <Label text="{Clientes>Country}"></Label>
                             <Label text="{Clientes>Telephone}"></Label>
-                            <ObjectStatus text="{path: 'Clientes>Custtype',
-                                                formatter: '.formatter.Custtype'}"></ObjectStatus>
-                            <Text text="{path: 'Clientes>Discount', formatter: '.formatPercentage'}"></Text>
-                           
+                            <ObjectStatus text="{path: 'Clientes>Custtype', formatter: '.formatter.Custtype'}"></ObjectStatus>
+                            <Text text="{path: 'Clientes>Discount', formatter: '.formatPercentage' }"></Text>
                             <Label text="{Clientes>Email}"></Label>
                             <Label text="{Clientes>Webuser}"></Label>
                             <Button icon="sap-icon://edit" press="onEditPress" />

@@ -1,10 +1,11 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/core/ValueState"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (Controller, ValueState) {
         "use strict";
 
         return Controller.extend("Exaccs.trabajopractico.controller.Main", {
@@ -19,8 +20,12 @@ sap.ui.define([
                 opanel.setVisible(true);
             },
 
-            formatter: function () {
-
+            formatterColor: function (value) {
+                if (value > 20) {
+                    return ValueState.Success; // Verde
+                } else {
+                    return ValueState.Error; // Rojo
+                }
             },
             calculateAge: function (oEdad) {
                 const fechaActual = new Date();
