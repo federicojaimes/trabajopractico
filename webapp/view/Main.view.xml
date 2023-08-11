@@ -70,7 +70,7 @@
                             <Label text="{Clientes>Country}"></Label>
                             <Label text="{Clientes>Telephone}"></Label>
                             <ObjectStatus text="{path: 'Clientes>Custtype', formatter: '.formatter.Custtype'}"></ObjectStatus>
-                            <Text text="{path: 'Clientes>Discount', formatter: '.formatPercentage' }"></Text>
+                            <ObjectStatus text="{path: 'Clientes>Discount', formatter: '.formatPercentage'}" state="{path: 'Clientes>Discount', formatter: '.formatterColor'}"></ObjectStatus>
                             <Label text="{Clientes>Email}"></Label>
                             <Label text="{Clientes>Webuser}"></Label>
                             <Button icon="sap-icon://edit" press="onEditPress" />

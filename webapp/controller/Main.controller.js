@@ -21,7 +21,8 @@ sap.ui.define([
             },
 
             formatterColor: function (value) {
-                if (value > 20) {
+               let discount = parseInt(value);
+                if (discount > 20) {
                     return ValueState.Success; // Verde
                 } else {
                     return ValueState.Error; // Rojo
@@ -40,8 +41,8 @@ sap.ui.define([
             formatPercentage: function (value) {
                 return (value * 1).toFixed(2) + "%";
             },
-            formatterCusttype: function () {
+            // formatterCusttype: function () {
 
-            }
+            // }
         });
     });
